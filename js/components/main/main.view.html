@@ -1,0 +1,17 @@
+<rzslider rz-slider-model="slider.value"
+          rz-slider-options="slider.options"></rzslider>
+
+<section class="contentList">
+  <div class="snowList row">
+    <div class="col s6">
+      <div class=""ng-repeat="video in mainCtrl.snowVids">
+        <iframe ng-src="{{video.url}}" width="400" height="225" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="col s6">
+      <div class="surfList" ng-repeat="video in mainCtrl.surfVids">
+        <iframe ng-src="{{video.url}}" width="400" height="225" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</section>
