@@ -4,22 +4,22 @@ window.news = {
       id: 31,
       type: 'snow',
       content: 'news',
-      url: 'https://www.npr.org/player/embed/263139931/263651522',
-      title: 'Sibling Snowboarders Hope To Reach Olympics At The Same Time'
+      url: 'https://www.youtube.com/embed/uAOdVHBqAns',
+      title: 'Behind The Cover : October 2016 with Torstein Horgmo'
     },
     {
       id: 32,
       type: 'snow',
       content: 'news',
-      url: 'https://www.npr.org/player/embed/264531379/264742960',
-      title: 'Zen And The Art Of Snowboarding: Jamie Anderson'
+      url: 'https://www.youtube.com/embed/vwkvMP7L3fA',
+      title: 'Rad Dad of the Year Takes Daughter Snowboarding on His Back'
     },
     {
       id: 33,
       type: 'snow',
       content: 'news',
-      url: 'https://www.npr.org/player/embed/282836515/282836516',
-      title: 'Researchers Debate Effectiveness Of Snow Helmets'
+      url: 'https://www.youtube.com/embed/-KXVHPWWXiI',
+      title: 'Best Snowboards of 2016-2017: Slash Brainstorm - Good Wood Snowboard Reviews'
     },
     {
       id: 34,
@@ -76,15 +76,15 @@ window.news = {
       id: 45,
       type: 'surf',
       content: 'news',
-      url: '<iframe src="https://www.npr.org/player/embed/347950272/348010338" width="100%" height="290" frameborder="0" scrolling="no" title="NPR embedded audio player"></iframe>',
+      url: 'https://www.npr.org/player/embed/347950272/348010338',
       title: 'Riding The \'Silver Dragon,\' Surfers Tame China\'s 10-Foot River Waves'
     },
     {
       id: 46,
       type: 'surf',
       content: 'news',
-      url: 'http://www.surfline.com/surf-news/minimal-swell-makes-for-desperate-suhttps://www.npr.org/player/embed/499995282/500898944',
-      title: 'Scary Small at Sunset Opening Day'
+      url: 'https://www.youtube.com/embed/n-5F_7DwPpo',
+      title: 'Funny Surfer Dude News'
     }
   ]
 };
