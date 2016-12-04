@@ -18,7 +18,7 @@
       controllerAs: 'mainCtrl'
     });
 
-    $sceDelegateProvider.resourceUrlWhitelist(['self', 'https://player.vimeo.com/**', 'http://www.surfline.com/**', 'https://www.npr.org/**']);
+    $sceDelegateProvider.resourceUrlWhitelist(['self', 'https://player.vimeo.com/**', 'https://www.youtube.com/embed/**', 'https://www.npr.org/**']);
   }
 
 })();

@@ -14,7 +14,7 @@
 
     this.contentList = [];
 
-    this.slider = {
+    this.typeSlider = {
       value: 'Snurf',
       options: {
         stepsArray: ['Pow Day', 'Shred', 'Snurf', 'Surfs Up', 'Barrels'],
@@ -39,52 +39,172 @@
       }
     };
 
+    this.contentSlider = {
+      value: 'A bit of both',
+      options: {
+        stepsArray: ['Videos', 'A bit of both', 'News'],
+        showSelectionBar: true,
+        getPointerColor: function(value) {
+          if (value === 'Videos')
+            return '#305CB2';
+          if (value === 'A bit of both')
+            return '#23A6B2';
+          if (value === 'News')
+            return '#E0FFFF';
+        },
+        showTicksValues: true,
+        onChange: () => {
+          this.contentList = [];
+          $scope.listContent();
+        }
+      }
+    };
+
     $scope.listContent = () => {
-      var slideVal = this.slider.value;
-      console.log(slideVal);
-      console.log(contentService.news);
-      if (slideVal === 'Snurf') {
-        for (let i = 0; i < contentService.allVideos.snow.length; i++) {
-          this.contentList.push(
-            contentService.allVideos.snow[i],
-            contentService.allVideos.surf[i],
-            contentService.news.snow[i],
-            contentService.news.surf[i]
-          );
+      var typeSlideVal = this.typeSlider.value;
+      var contentSlideVal = this.contentSlider.value;
+      console.log(typeSlideVal);
+      console.log(contentSlideVal);
+      if (typeSlideVal === 'Snurf') {
+        if (contentSlideVal === 'Videos') {
+          for (let i = 0; i < contentService.allVideos.snow.length; i++) {
+            this.contentList.push(
+              contentService.allVideos.snow[i],
+              contentService.allVideos.surf[i]
+            );
+          }
+        } else if (contentSlideVal === 'A bit of both') {
+          for (let i = 0; i < contentService.allVideos.snow.length; i++) {
+            this.contentList.push(
+              contentService.allVideos.snow[i],
+              contentService.allVideos.surf[i],
+              contentService.allNews.snow[i],
+              contentService.allNews.surf[i]
+            );
+          }
+        } else if (contentSlideVal === 'News') {
+          for (let i = 0; i < contentService.allVideos.snow.length; i++) {
+            this.contentList.push(
+              contentService.allNews.snow[i],
+              contentService.allNews.surf[i]
+            );
+          }
         }
-      } else if (slideVal === 'Pow Day') {
-        for (let i = 0; i < contentService.allVideos.snow.length; i++) {
-          this.contentList.push(
-            contentService.allVideos.snow[i]
-          );
+      } else if (typeSlideVal === 'Pow Day') {
+        if (contentSlideVal === 'Videos') {
+          for (let i = 0; i < contentService.allVideos.snow.length; i++) {
+            this.contentList.push(
+              contentService.allVideos.snow[i]
+            );
+          }
+        } else if (contentSlideVal === 'A bit of both') {
+          for (let i = 0; i < contentService.allVideos.snow.length; i++) {
+            this.contentList.push(
+              contentService.allVideos.snow[i],
+              contentService.allNews.snow[i]
+            );
+          }
+        } else if (contentSlideVal === 'News') {
+          for (let i = 0; i < contentService.allVideos.snow.length; i++) {
+            this.contentList.push(
+              contentService.allNews.snow[i]
+            );
+          }
         }
-      } else if (slideVal === 'Shred') {
+      } else if (typeSlideVal === 'Shred') {
         var surfCount = 0;
-        for (let i = 0; i < contentService.allVideos.snow.length; i += 3) {
-          this.contentList.push(
-            contentService.allVideos.snow[i],
-            contentService.allVideos.snow[i + 1],
-            contentService.allVideos.snow[i + 2],
-            contentService.allVideos.surf[surfCount]
-          );
-          surfCount++;
+        if (contentSlideVal === 'Videos') {
+          for (let i = 0; i < contentService.allVideos.snow.length; i += 3) {
+            this.contentList.push(
+              contentService.allVideos.snow[i],
+              contentService.allVideos.surf[surfCount],
+              contentService.allVideos.snow[i + 1],
+              contentService.allVideos.snow[i + 2]
+            );
+            surfCount++;
+          }
+        } else if (contentSlideVal === 'A bit of both') {
+          for (let i = 0; i < contentService.allVideos.snow.length; i += 3) {
+            this.contentList.push(
+              contentService.allVideos.snow[i],
+              contentService.allVideos.surf[surfCount],
+              contentService.allNews.snow[i],
+              contentService.allVideos.snow[i + 1],
+              contentService.allNews.snow[i + 1],
+              contentService.allNews.surf[surfCount],
+              contentService.allVideos.snow[i + 2],
+              contentService.allNews.snow[i + 2]
+            );
+            surfCount++;
+          }
+        } else if (contentSlideVal === 'News') {
+          for (let i = 0; i < contentService.allVideos.snow.length; i += 3) {
+            this.contentList.push(
+              contentService.allNews.snow[i],
+              contentService.allNews.surf[surfCount],
+              contentService.allNews.snow[i + 1],
+              contentService.allNews.snow[i + 2]
+            );
+            surfCount++;
+          }
         }
-      } else if (slideVal === 'Surfs Up') {
+      } else if (typeSlideVal === 'Surfs Up') {
         var snowCount = 0;
-        for (let i = 0; i < contentService.allVideos.surf.length; i += 3) {
-          this.contentList.push(
-            contentService.allVideos.surf[i],
-            contentService.allVideos.surf[i + 1],
-            contentService.allVideos.surf[i + 2],
-            contentService.allVideos.snow[snowCount]
-          );
-          snowCount++;
+        if (contentSlideVal === 'Videos') {
+          for (let i = 0; i < contentService.allVideos.surf.length; i += 3) {
+            this.contentList.push(
+              contentService.allVideos.surf[i],
+              contentService.allVideos.snow[snowCount],
+              contentService.allVideos.surf[i + 1],
+              contentService.allVideos.surf[i + 2]
+            );
+            snowCount++;
+          }
+        } else if (contentSlideVal === 'A bit of both') {
+          for (let i = 0; i < contentService.allVideos.surf.length; i += 3) {
+            this.contentList.push(
+              contentService.allVideos.surf[i],
+              contentService.allVideos.snow[snowCount],
+              contentService.allNews.surf[i],
+              contentService.allVideos.surf[i + 1],
+              contentService.allNews.surf[i + 1],
+              contentService.allNews.snow[snowCount],
+              contentService.allVideos.surf[i + 2],
+              contentService.allNews.surf[i + 2]
+            );
+            snowCount++;
+          }
+        } else if (contentSlideVal === 'News') {
+          for (let i = 0; i < contentService.allVideos.surf.length; i += 3) {
+            this.contentList.push(
+              contentService.allNews.surf[i],
+              contentService.allNews.snow[snowCount],
+              contentService.allNews.surf[i + 1],
+              contentService.allNews.surf[i + 2]
+            );
+            snowCount++;
+          }
         }
-      } else if (slideVal === 'Barrels') {
-        for (let i = 0; i < contentService.allVideos.surf.length; i++) {
-          this.contentList.push(
-            contentService.allVideos.surf[i]
-          );
+      } else if (typeSlideVal === 'Barrels') {
+        if (contentSlideVal === 'Videos') {
+          for (let i = 0; i < contentService.allVideos.surf.length; i++) {
+            this.contentList.push(
+              contentService.allVideos.surf[i]
+            );
+          }
+        } else if (contentSlideVal === 'A bit of both') {
+          for (let i = 0; i < contentService.allVideos.surf.length; i++) {
+            this.contentList.push(
+              contentService.allVideos.surf[i],
+              contentService.allNews.surf[i]
+            );
+          }
+        } else if (contentSlideVal === 'News') {
+          for (let i = 0; i < contentService.allVideos.surf.length; i++) {
+            this.contentList.push(
+              contentService.allNews.surf[i]
+            );
+          }
         }
       }
     };
@@ -97,16 +217,16 @@
     // })
     //
     // this.slideToInt = () => {
-    //   var slideVal = this.slider.value;
-    //   if (slideVal === 'Pow Day') {
+    //   var typeSlideVal = this.typeSlider.value;
+    //   if (typeSlideVal === 'Pow Day') {
     //     return 1;
-    //   } else if (slideVal === 'Shred') {
+    //   } else if (typeSlideVal === 'Shred') {
     //     return 2;
-    //   } else if (slideVal === 'Snurf') {
+    //   } else if (typeSlideVal === 'Snurf') {
     //     return 3;
-    //   } else if (slideVal === 'Surfs Up') {
+    //   } else if (typeSlideVal === 'Surfs Up') {
     //     return 4;
-    //   } else if (slideVal === 'Barrels') {
+    //   } else if (typeSlideVal === 'Barrels') {
     //     return 5;
     //   }
     // };
