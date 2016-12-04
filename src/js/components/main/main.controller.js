@@ -34,7 +34,7 @@
         showTicksValues: false,
         onChange: () => {
           this.contentList = [];
-          $scope.listContent()
+          $scope.listContent();
         }
       }
     };
@@ -42,11 +42,14 @@
     $scope.listContent = () => {
       var slideVal = this.slider.value;
       console.log(slideVal);
+      console.log(contentService.news);
       if (slideVal === 'Snurf') {
         for (let i = 0; i < contentService.allVideos.snow.length; i++) {
           this.contentList.push(
             contentService.allVideos.snow[i],
-            contentService.allVideos.surf[i]
+            contentService.allVideos.surf[i],
+            contentService.news.snow[i],
+            contentService.news.surf[i]
           );
         }
       } else if (slideVal === 'Pow Day') {

@@ -9,6 +9,7 @@
 
   function contentService($http, $window) {
     this.allVideos = window.videoSamples;
+    this.allNews = window.news;
   }
 
 }());
