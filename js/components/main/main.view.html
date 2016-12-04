@@ -1,13 +1,12 @@
-<rzslider rz-slider-model="mainCtrl.slider.value"
-          rz-slider-options="mainCtrl.slider.options"></rzslider>
+<rzslider rz-slider-model="mainCtrl.slider.value" rz-slider-options="mainCtrl.slider.options"></rzslider>
 
 <section class="contentList">
-  <div class="row" ng-repeat="videos in mainCtrl.contentList | slideVideoFilter">
+  <div class="row" ng-repeat="video in mainCtrl.contentList">
     <div class="col s6">
-      <iframe ng-src="{{videos.url}}" width="400" height="225" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      <iframe ng-src="{{video.url}}" width="400" height="225" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     </div>
     <!-- <div class="col s6" ng-class="{ 'show': $even, 'hide': $odd }">
-      <iframe ng-src="{{videos.surf.url}}" width="400" height="225" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      <iframe ng-src="{{video.surf.url}}" width="400" height="225" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     </div> -->
   </div>
 </section>
