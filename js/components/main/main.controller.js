@@ -11,8 +11,9 @@
   function mainController($scope, contentService) {
     /*jshint validthis: true */
     this.greeting = 'This.Is.Snurfer!';
-
     this.contentList = [];
+    // this.currentWeather = {};
+    this.forecastWeather = {};
 
     this.typeSlider = {
       value: 'Snurf',
@@ -63,8 +64,7 @@
     $scope.listContent = () => {
       var typeSlideVal = this.typeSlider.value;
       var contentSlideVal = this.contentSlider.value;
-      console.log(typeSlideVal);
-      console.log(contentSlideVal);
+
       if (typeSlideVal === 'Snurf') {
         if (contentSlideVal === 'Videos') {
           for (let i = 0; i < contentService.allVideos.snow.length; i++) {
@@ -211,25 +211,22 @@
 
     $scope.listContent();
 
-    // $scope.$watch('test', () => {
-    //   console.log('!');
-    //   // this.listContent()
-    // })
-    //
-    // this.slideToInt = () => {
-    //   var typeSlideVal = this.typeSlider.value;
-    //   if (typeSlideVal === 'Pow Day') {
-    //     return 1;
-    //   } else if (typeSlideVal === 'Shred') {
-    //     return 2;
-    //   } else if (typeSlideVal === 'Snurf') {
-    //     return 3;
-    //   } else if (typeSlideVal === 'Surfs Up') {
-    //     return 4;
-    //   } else if (typeSlideVal === 'Barrels') {
-    //     return 5;
-    //   }
-    // };
+    // contentService.getCurrentWeather()
+    // .then((weather) => {
+    //   var weatherData = weather.data.current_observation;
+    //   this.currentWeather = weatherData;
+    //   console.log(this.currentWeather);
+    // });
+
+    contentService.getForecastWeather()
+    .then((forecast) => {
+      var forecastData = forecast.data.forecast.simpleforecast.forecastday;
+      this.forecastWeather = forecastData;
+      console.log(this.forecastWeather);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 
   }
 

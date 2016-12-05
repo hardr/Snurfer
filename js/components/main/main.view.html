@@ -1,14 +1,29 @@
-<rzslider rz-slider-model="mainCtrl.typeSlider.value" rz-slider-options="mainCtrl.typeSlider.options"></rzslider>
-<rzslider rz-slider-model="mainCtrl.contentSlider.value" rz-slider-options="mainCtrl.contentSlider.options"></rzslider>
+<section class="sliders">
+  <div>
+    <rzslider rz-slider-model="mainCtrl.typeSlider.value" rz-slider-options="mainCtrl.typeSlider.options"></rzslider>
+  </div>
+  <div>
+    <rzslider rz-slider-model="mainCtrl.contentSlider.value" rz-slider-options="mainCtrl.contentSlider.options"></rzslider>
+  </div>
+</section>
 
 <section class="contentList">
-  <div class="row" ng-repeat="video in mainCtrl.contentList">
-    <div class="col s6">
-      <iframe ng-src="{{video.url}}" width="400" height="225" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+  <div class="row">
+    <div class="col s3 offset-s9 weatherCenter">
+      <div class="weatherDay" ng-repeat="day in mainCtrl.forecastWeather">
+        <p>{{$index === 0 ? 'Today' : $index === 1 ? 'Tomorrow' : day.date.weekday}}</p>
+        <img ng-src="{{day.icon_url}}" height="30px" width="30px">
+        <p>High:{{day.high.fahrenheit}}&#176;F</p>
+        <p>Low:{{day.low.fahrenheit}}&#176;F</p>
+      </div>
+      <p>{{mainCtrl.forecastWeather.txt_forecast.date}}</p>
     </div>
-    <!-- <div class="col s6" ng-class="{ 'show': $even, 'hide': $odd }">
-      <iframe ng-src="{{video.surf.url}}" width="400" height="225" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-    </div> -->
+    <div class="col s9 content" ng-repeat="video in mainCtrl.contentList">
+      <div class="col s6" ng-class="{'offset-s5': $odd }">
+        <iframe ng-src="{{video.url}}" width="300" height="169" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
+    </div>
+
   </div>
 </section>
 
