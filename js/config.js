@@ -18,7 +18,7 @@
       controllerAs: 'mainCtrl'
     });
 
-    $sceDelegateProvider.resourceUrlWhitelist(['self', 'https://player.vimeo.com/**', 'https://www.youtube.com/embed/**', 'https://www.npr.org/**', 'http://api.wunderground.com/api/**', 'http://icons.wxug.com/**']);
+    $sceDelegateProvider.resourceUrlWhitelist(['self', 'https://player.vimeo.com/**', 'https://www.youtube.com/embed/**', 'https://www.npr.org/**', 'https://api.wunderground.com/**', 'https://icons.wxug.com/**']);
   }
 
 })();

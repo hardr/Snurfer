@@ -10,7 +10,8 @@
       'snurfApp.config',
       'snurfApp.components.main',
       'snurfApp.services',
-      'ui.router'
+      'ui.router',
+      'ngAnimate'
     ]);
 
 })();

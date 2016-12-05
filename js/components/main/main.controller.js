@@ -12,6 +12,19 @@
     /*jshint validthis: true */
     this.greeting = 'This.Is.Snurfer!';
     this.contentList = [];
+    this.location = {
+      updateWeather: () => {
+        contentService.getForecastWeather(this.location.city, this.location.state)
+        .then((forecast) => {
+
+          var forecastData = forecast.data.forecast.simpleforecast.forecastday;
+          this.forecastWeather = forecastData;
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+      }
+    };
     // this.currentWeather = {};
     this.forecastWeather = {};
 
@@ -218,11 +231,10 @@
     //   console.log(this.currentWeather);
     // });
 
-    contentService.getForecastWeather()
+    contentService.getForecastWeather(location.city, location.state)
     .then((forecast) => {
       var forecastData = forecast.data.forecast.simpleforecast.forecastday;
       this.forecastWeather = forecastData;
-      console.log(this.forecastWeather);
     })
     .catch((err) => {
       console.log(err);
