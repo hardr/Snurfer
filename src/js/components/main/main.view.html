@@ -1,27 +1,36 @@
-<section class="sliders">
+<section class="sliders container">
   <div>
+    <h4>Snow or surf?</h4>
     <rzslider rz-slider-model="mainCtrl.typeSlider.value" rz-slider-options="mainCtrl.typeSlider.options"></rzslider>
   </div>
   <div>
+    <h4>News or videos?</h4>
     <rzslider rz-slider-model="mainCtrl.contentSlider.value" rz-slider-options="mainCtrl.contentSlider.options"></rzslider>
   </div>
 </section>
 
 <section class="contentList">
   <div class="row">
-    <div class="col s3 offset-s9 weatherCenter">
+
+    <div class="col s8 offset-s1 content">
+      <div class="col s6" ng-class="{'offset-s5': $odd }" ng-repeat="video in mainCtrl.contentList">
+        <iframe class="{{video.type}} {{video.content}}" ng-src="{{video.url}}" width="300" height="169" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="col s3 weatherCenter">
+      <form class="row">
+        <input class="col s6" type="text" placeholder="Denver" ng-model="mainCtrl.location.city">
+        <input class="col s4" type="text" placeholder="CO" ng-model="mainCtrl.location.state">
+        <button ng-click="mainCtrl.location.updateWeather()">Update Location</button>
+      </form>
       <div class="weatherDay" ng-repeat="day in mainCtrl.forecastWeather">
         <p>{{$index === 0 ? 'Today' : $index === 1 ? 'Tomorrow' : day.date.weekday}}</p>
         <img ng-src="{{day.icon_url}}" height="30px" width="30px">
         <p>High:{{day.high.fahrenheit}}&#176;F</p>
         <p>Low:{{day.low.fahrenheit}}&#176;F</p>
       </div>
-      <p>{{mainCtrl.forecastWeather.txt_forecast.date}}</p>
-    </div>
-    <div class="col s9 content" ng-repeat="video in mainCtrl.contentList">
-      <div class="col s6" ng-class="{'offset-s5': $odd }">
-        <iframe ng-src="{{video.url}}" width="300" height="169" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-      </div>
+      <p>{{mainCtrl.forecastWeather[0].date.pretty}}</p>
     </div>
 
   </div>

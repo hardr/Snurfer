@@ -11,3 +11,19 @@ body {
 main {
   flex: 1 0 auto;
 }
+
+/*div .snow {
+  border: 5px solid blue;
+}
+
+div .surf {
+  border: 5px solid red;
+}*/
+
+div .video {
+  border: 5px solid red;
+}
+
+div .news {
+  border: 5px solid blue;
+}
