@@ -24,6 +24,10 @@ div .video {
   border: 5px solid red;
 }
 
-div .news {
+div .image {
   border: 5px solid blue;
+}
+
+section.sliders {
+  /*background-image: url('../images/powCarve.jpg');*/
 }
