@@ -16,6 +16,24 @@
       templateUrl: './js/components/main/main.view.html',
       controller: 'mainController',
       controllerAs: 'mainCtrl'
+    })
+    .state('login', {
+      url: '/login',
+      templateUrl: './js/components/account/login.view.html',
+      controller: 'accountController',
+      controllerAs: 'accountCtrl'
+    })
+    .state('signup', {
+      url: '/signup',
+      templateUrl: './js/components/account/signup.view.html',
+      controller: 'accountController',
+      controllerAs: 'accountCtrl'
+    })
+    .state('account', {
+      url: '/account',
+      templateUrl: './js/components/account/account.view.html',
+      controller: 'accountController',
+      controllerAs: 'accountCtrl'
     });
 
     // $urlRouterProvider.otherwise('/#/');
@@ -24,27 +42,3 @@
   }
 
 })();
-
-// function appConfig($stateProvider, $urlRouterProvider) {
-//     $stateProvider
-//     .state('home', {
-//       url: '/',
-//       templateUrl: 'js/components/main/main.view.html',
-//       controller: 'mainController',
-//       controllerAs: 'mainCtrl'
-//     })
-//     .state('home.list', {
-//       templateUrl: 'js/components/main/partials/_list.html'
-//     })
-//     .state('about', {
-//       url: '/about',
-//       templateUrl: 'js/components/about/about.view.html',
-//       controller: 'aboutController',
-//       controllerAs: 'aboutCtrl'
-//     })
-//     .state('about.contacts', {
-//       templateUrl: 'js/components/about/partials/_contacts.html'
-//     });
-//
-//     $urlRouterProvider.otherwise('/#/whatever')
-//   }

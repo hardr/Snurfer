@@ -1,6 +1,21 @@
 /* add custom styles */
 
-/* materialize footer style */
+@font-face {
+  font-family: alien;
+  src: url(fonts/alienleague.ttf) format("truetype");
+}
+
+/* ***** navbar styling ***** */
+
+.side-nav ul li:hover {
+   background-color: white;
+}
+
+.nav-links:hover {
+  color: #ee6e73;
+}
+
+/* ***** general styling ***** */
 
 body {
   display: flex;
@@ -12,22 +27,31 @@ main {
   flex: 1 0 auto;
 }
 
-/*div .snow {
-  border: 5px solid blue;
+.emph-color {
+  color: #ee6e73;
+  font-family: alien;
 }
 
-div .surf {
-  border: 5px solid red;
-}*/
+/* ***** content list styling ***** */
+
+.brand-logo, .tab {
+  font-family: alien;
+}
 
 div .video {
-  border: 5px solid red;
+  border: 5px solid black;
 }
 
 div .image {
-  border: 5px solid blue;
+  border: 5px solid #ee6e73;
 }
 
-section.sliders {
-  /*background-image: url('../images/powCarve.jpg');*/
+.rzslider .rz-pointer {
+  background-color: #ee6e73;
 }
+
+.rzslider .rz-bar.rz-selection {
+  background: black;
+}
+
+/* ****** background-image: url('../images/powCarve.jpg'); ***** */
