@@ -9,6 +9,7 @@
       'ui.materialize',
       'snurfApp.config',
       'snurfApp.components.main',
+      'snurfApp.components.account',
       'snurfApp.services',
       'ui.router',
       'ngAnimate'

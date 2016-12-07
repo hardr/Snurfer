@@ -1,0 +1,12 @@
+<br>
+<br>
+<br>
+<section class="userContentList">
+  <div class="col s8" ng-repeat="content in accountCtrl.userContent">
+    <iframe ng-if="content.content === 'video'" class="{{content.type}} {{content.content}}" ng-src="{{content.data}}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    <img ng-if="content.content === 'image'"  class="{{content.type}} image" ng-src="{{content.data}}" width="300">
+    <p>{{content.title}}</p>
+  </div>
+</section>
+
+<p>Insanity, check!</p>

@@ -10,17 +10,20 @@
   function slideVideoFilter() {
 
     return function(content, contentSlide) {
-      return filtered = content.filter((video) => {
+      var filtered = content.filter((video) => {
         if (contentSlide === 'Videos') {
-          if (video.content === 'video')
+          if (video.content === 'video') {
             return video;
+          }
         } else if (contentSlide === 'Photos') {
-          if (video.content === 'image')
+          if (video.content === 'image') {
             return video;
+          }
         } else {
           return video;
         }
       });
+      return filtered;
     };
 
   }
