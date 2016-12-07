@@ -18,7 +18,7 @@
     };
 
     this.allContent = function() {
-      return $http.get('http://localhost:3000/allContent');
+      return $http.get('http://mysterious-cove-11042.herokuapp.com/allContent');
     };
 
     this.weatherBaseUrl = 'https://api.wunderground.com/api/9c007c8680fe69c5/';
@@ -31,10 +31,10 @@
   function accountService($http) {
 
     this.allContent = function() {
-      return $http.get('http://localhost:3000/allContent');
+      return $http.get('http://mysterious-cove-11042.herokuapp.com/allContent');
     };
 
-    const baseUrl = 'http://localhost:3000/';
+    const baseUrl = 'http://mysterious-cove-11042.herokuapp.com/';
 
     this.signup = newUser => {
       var validated = validateUserInput(newUser);
