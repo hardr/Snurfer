@@ -1,10 +1,9 @@
 <section class="sliders container">
   <div>
-    <h4>Snow or surf?</h4>
+    <h4>Snow, Surf or Skate?</h4>
     <rzslider rz-slider-model="mainCtrl.typeSlider.value" rz-slider-options="mainCtrl.typeSlider.options"></rzslider>
   </div>
   <div>
-    <h4>News or videos?</h4>
     <rzslider rz-slider-model="mainCtrl.contentSlider.value" rz-slider-options="mainCtrl.contentSlider.options"></rzslider>
   </div>
 </section>
@@ -12,13 +11,34 @@
 <section class="contentList">
   <div class="row">
 
-    <div class="col s8 offset-s1 content">
-      <div class="col s6" ng-class="{'offset-s5': $odd }" ng-repeat="video in mainCtrl.contentList">
-        <iframe class="{{video.type}} {{video.content}}" ng-src="{{video.url}}" width="300" height="169" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    <div ng-if="mainCtrl.typeSlider.value === 'Snow'" class="col s8 offset-s2 content">
+      <div class="col s8" ng-class="{'offset-s6': $odd }" ng-repeat="content in mainCtrl.snowList | slideVideoFilter:mainCtrl.contentSlider.value">
+        <iframe ng-if="content.content === 'video'" class="{{content.type}} {{content.content}}" ng-src="{{content.data}}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <img ng-if="content.content === 'image'"  class="{{content.type}} image" ng-src="{{content.data}}" width="300">
+        <p>{{content.title}}</p>
       </div>
     </div>
 
-    <div class="col s3 weatherCenter">
+    <div ng-if="mainCtrl.typeSlider.value === 'Skate'" class="col s8 offset-s2 content">
+      <div class="col s8" ng-class="{'offset-s6': $odd }" ng-repeat="content in mainCtrl.skateList | slideVideoFilter:mainCtrl.contentSlider.value">
+        <iframe ng-if="content.content === 'video'" class="{{content.type}} video" ng-src="{{content.data}}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <img ng-if="content.content === 'image'"  class="{{content.type}} image" ng-src="{{content.data}}" width="300">
+        <p>{{content.title}}</p>
+      </div>
+    </div>
+
+    <div ng-if="mainCtrl.typeSlider.value === 'Surf'" class="col s8 offset-s2 content">
+      <div class="col s8" ng-class="{'offset-s6': $odd }" ng-repeat="content in mainCtrl.surfList | slideVideoFilter:mainCtrl.contentSlider.value">
+        <iframe ng-if="content.content === 'video'" class="{{content.type}} {{content.content}}" ng-src="{{content.data}}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <img ng-if="content.content === 'image'"  class="{{content.type}} image" ng-src="{{content.data}}" width="300">
+        <div>
+          <p>{{content.title}}</p>
+          <p>{{content.name}}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="col s3 weatherCenter">
       <form class="row">
         <input class="col s6" type="text" placeholder="Denver" ng-model="mainCtrl.location.city">
         <input class="col s4" type="text" placeholder="CO" ng-model="mainCtrl.location.state">
@@ -31,7 +51,7 @@
         <p>Low:{{day.low.fahrenheit}}&#176;F</p>
       </div>
       <p>{{mainCtrl.forecastWeather[0].date.pretty}}</p>
-    </div>
+    </div> -->
 
   </div>
 </section>
