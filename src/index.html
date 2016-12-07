@@ -11,20 +11,26 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
   </head>
   <body ng-cloak>
-    <!-- sample angular code -->
     <header>
-      <!-- Dropdown Structure -->
-      <ul id="dropdown1" class="dropdown-content">
-        <li><a href="#!">Login</a></li>
-        <li class="divider"></li>
-        <li><a href="#!">Home</a></li>
-      </ul>
-      <nav>
-        <div class="nav-wrapper row">
-          <a href="#!" class="brand-logo col s2 offset-l1">Logo</a>
-          <!-- <ul class="right hide-on-med-and-down">
-            <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Places<i class="material-icons right">arrow_drop_down</i></a></li>
-          </ul> -->
+      <nav class="nav-extended">
+        <div class="row nav-wrapper black">
+          <a ui-sref="home" class="brand-logo col s2 offset-s1">SBORT</a>
+          <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a ng-hide=""  class="nav-links" ui-sref="signup">Signup</a></li>
+            <li><a ng-hide=""  class="nav-links" ui-sref="login">Login</a></li>
+            <li><a ng-show="" class="nav-links" ui-sref="account">Your Spot</a></li>
+          </ul>
+          <ul class="side-nav" id="mobile-demo">
+            <li><a ng-hide="" class="nav-links" ui-sref="signup">Signup</a></li>
+            <li><a ng-hide="" class="nav-links" ui-sref="login">Login</a></li>
+            <li><a ng-show="" class="nav-links" ui-sref="account">Your Spot</a></li>
+          </ul>
+          <ul ng-controller="mainController as mainCtrl" class="tabs tabs-transparent black">
+            <li class="tab"><a ng-click="mainCtrl.grabTab('snow')" class="tab-link" href="#snow">Snow</a></li>
+            <li class="tab active"><a ng-click="mainCtrl.grabTab('surf')" class="tab-link active" href="#surf">Surf</a></li>
+            <li class="tab"><a ng-click="mainCtrl.grabTab('skate')" class="tab-link" href="#skate">Skate</a></li>
+          </ul>
         </div>
       </nav>
     </header>
@@ -33,7 +39,7 @@
       <div ui-view></div>
     </main>
 
-    <footer class="page-footer">
+    <footer class="page-footer black">
       <div>
         <div class="row">
           <div class="col l6 s12">
@@ -74,5 +80,6 @@
     <script type="text/javascript" src="js/filters.js"></script>
     <!-- main component -->
     <script type="text/javascript" src="js/components/main/main.controller.js"></script>
+    <script type="text/javascript" src="js/components/account/account.controller.js"></script>
   </body>
 </html>

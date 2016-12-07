@@ -6,9 +6,9 @@
     .module('snurfApp.components.main', ['rzModule'])
     .controller('mainController', mainController);
 
-  mainController.$inject = ['$scope', 'contentService'];
+  mainController.$inject = ['$scope', '$rootScope', 'contentService'];
 
-  function mainController($scope, contentService) {
+  function mainController($scope, $rootScope, contentService) {
     /*jshint validthis: true */
     this.allContent = contentService.allContent()
       .then(content => {
@@ -29,6 +29,23 @@
     this.skateList = [];
     this.surfList = [];
 
+    $rootScope.tabValue = 'surf';
+
+    // check out 'pubsub' after capstone
+
+    this.grabTab = (val) => {
+      $rootScope.tabValue = val;
+    };
+
+    this.contentSlider = {
+      value: 'All',
+      options: {
+        stepsArray: ['Videos', 'All', 'Photos'],
+        showSelectionBar: true
+      },
+      showTicksValues: false
+    };
+
     // this.location = {
     //   updateWeather: () => {
     //     contentService.getForecastWeather(this.location.city, this.location.state)
@@ -45,53 +62,32 @@
     // this.currentWeather = {};
     // this.forecastWeather = {};
 
-    var snowColor = '#C1FF88';
-    var skateColor = '#CC7C63';
-    var surfColor = '#7F98FF';
-    var currentColor = surfColor;
-
-    this.typeSlider = {
-      value: 'Surf',
-      options: {
-        stepsArray: ['Snow', 'Skate', 'Surf'],
-        showSelectionBar: true,
-        getPointerColor: function(value) {
-          if (value === 'Snow') {
-            currentColor = snowColor;
-            return snowColor;
-          }
-          if (value === 'Skate') {
-            currentColor = skateColor;
-            return skateColor;
-          }
-          if (value === 'Surf') {
-            currentColor = surfColor;
-            return surfColor;
-          }
-        },
-        showTicksValues: false
-        // onChange: () => {
-        //   this.contentList = [];
-        //   $scope.listContent();
-        // }
-      }
-    };
-
-    this.contentSlider = {
-      value: 'All',
-      options: {
-        stepsArray: ['Videos', 'All', 'Photos'],
-        showSelectionBar: true,
-        getPointerColor: (value) => {
-          return currentColor;
-        },
-        showTicksValues: false
-        // onChange: () => {
-        //   this.contentList = [];
-        //   $scope.listContent();
-        // }
-      }
-    };
+    // this.typeSlider = {
+    //   value: 'Surf',
+    //   options: {
+    //     stepsArray: ['Snow', 'Skate', 'Surf'],
+    //     showSelectionBar: true,
+    //     getPointerColor: function(value) {
+    //       if (value === 'Snow') {
+    //         currentColor = snowColor;
+    //         return snowColor;
+    //       }
+    //       if (value === 'Skate') {
+    //         currentColor = skateColor;
+    //         return skateColor;
+    //       }
+    //       if (value === 'Surf') {
+    //         currentColor = surfColor;
+    //         return surfColor;
+    //       }
+    //     },
+    //     showTicksValues: false
+    //     // onChange: () => {
+    //     //   this.contentList = [];
+    //     //   $scope.listContent();
+    //     // }
+    //   }
+    // };
 
     // $scope.listContent = () => {
     //   var typeSlideVal = this.typeSlider.value;

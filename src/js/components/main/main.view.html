@@ -1,8 +1,11 @@
 <section class="sliders container">
-  <div>
+  <!-- <div>
     <h4>Snow, Surf or Skate?</h4>
     <rzslider rz-slider-model="mainCtrl.typeSlider.value" rz-slider-options="mainCtrl.typeSlider.options"></rzslider>
-  </div>
+  </div> -->
+  <br>
+  <br>
+  <br>
   <div>
     <rzslider rz-slider-model="mainCtrl.contentSlider.value" rz-slider-options="mainCtrl.contentSlider.options"></rzslider>
   </div>
@@ -11,7 +14,7 @@
 <section class="contentList">
   <div class="row">
 
-    <div ng-if="mainCtrl.typeSlider.value === 'Snow'" class="col s8 offset-s2 content">
+    <div ng-if="tabValue === 'snow'" class="col s8 offset-s2 content">
       <div class="col s8" ng-class="{'offset-s6': $odd }" ng-repeat="content in mainCtrl.snowList | slideVideoFilter:mainCtrl.contentSlider.value">
         <iframe ng-if="content.content === 'video'" class="{{content.type}} {{content.content}}" ng-src="{{content.data}}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         <img ng-if="content.content === 'image'"  class="{{content.type}} image" ng-src="{{content.data}}" width="300">
@@ -19,7 +22,7 @@
       </div>
     </div>
 
-    <div ng-if="mainCtrl.typeSlider.value === 'Skate'" class="col s8 offset-s2 content">
+    <div ng-if="tabValue === 'skate'" class="col s8 offset-s2 content">
       <div class="col s8" ng-class="{'offset-s6': $odd }" ng-repeat="content in mainCtrl.skateList | slideVideoFilter:mainCtrl.contentSlider.value">
         <iframe ng-if="content.content === 'video'" class="{{content.type}} video" ng-src="{{content.data}}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         <img ng-if="content.content === 'image'"  class="{{content.type}} image" ng-src="{{content.data}}" width="300">
@@ -27,7 +30,7 @@
       </div>
     </div>
 
-    <div ng-if="mainCtrl.typeSlider.value === 'Surf'" class="col s8 offset-s2 content">
+    <div ng-if="tabValue === 'surf'" class="col s8 offset-s2 content">
       <div class="col s8" ng-class="{'offset-s6': $odd }" ng-repeat="content in mainCtrl.surfList | slideVideoFilter:mainCtrl.contentSlider.value">
         <iframe ng-if="content.content === 'video'" class="{{content.type}} {{content.content}}" ng-src="{{content.data}}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         <img ng-if="content.content === 'image'"  class="{{content.type}} image" ng-src="{{content.data}}" width="300">
