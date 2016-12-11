@@ -32,6 +32,10 @@ main {
   font-family: alien;
 }
 
+.form-submit {
+  background-color: #ee6e73;
+}
+
 /* ***** content list styling ***** */
 
 .brand-logo, .tab {

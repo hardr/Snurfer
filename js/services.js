@@ -30,6 +30,8 @@
 
   function accountService($http) {
 
+    this.loggedIn = false;
+
     this.allContent = function() {
       return $http.get('https://mysterious-cove-11042.herokuapp.com/allContent');
     };
@@ -43,9 +45,14 @@
         return $http.post(baseUrl + 'accounts/register', JSON.stringify(validated));
       } else {
         return new Promise(() => {
+          console.log('error promise');
           return 'Invalid ' + validated;
         });
       }
+    };
+
+    this.login = user => {
+        return $http.post(baseUrl + 'accounts/login', JSON.stringify(user));
     };
 
     function validateUserInput(userData) {

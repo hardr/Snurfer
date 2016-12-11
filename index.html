@@ -16,17 +16,17 @@
         <div class="row nav-wrapper black">
           <a ui-sref="home" class="brand-logo col s2 offset-s1">SBORT</a>
           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a ng-hide=""  class="nav-links" ui-sref="signup">Signup</a></li>
-            <li><a ng-hide=""  class="nav-links" ui-sref="login">Login</a></li>
-            <li><a ng-show="" class="nav-links" ui-sref="account">Your Spot</a></li>
+          <ul id="nav-mobile" class="right hide-on-med-and-down" ng-controller="accountController as accountCtrl">
+            <li><a class="nav-links" ui-sref="signup">Signup</a></li>
+            <li><a class="nav-links" ui-sref="login">Login</a></li>
+            <li><a class="nav-links" ui-sref="account">Your Spot</a></li>
           </ul>
-          <ul class="side-nav" id="mobile-demo">
-            <li><a ng-hide="" class="nav-links" ui-sref="signup">Signup</a></li>
-            <li><a ng-hide="" class="nav-links" ui-sref="login">Login</a></li>
-            <li><a ng-show="" class="nav-links" ui-sref="account">Your Spot</a></li>
+          <ul class="side-nav" id="mobile-demo" ng-controller="accountController as accountCtrl">
+            <li><a ng-hide="loggedIn.active" class="nav-links" ui-sref="signup">Signup</a></li>
+            <li><a ng-hide="loggedIn.active" class="nav-links" ui-sref="login">Login</a></li>
+            <li><a ng-show="loggedIn.active" class="nav-links" ui-sref="account">Your Spot</a></li>
           </ul>
-          <ul ng-controller="mainController as mainCtrl" class="tabs tabs-transparent black">
+          <ul class="tabs tabs-transparent black" ng-controller="mainController as mainCtrl">
             <li class="tab"><a ng-click="mainCtrl.grabTab('snow')" class="tab-link" href="#snow">Snow</a></li>
             <li class="tab active"><a ng-click="mainCtrl.grabTab('surf')" class="tab-link active" href="#surf">Surf</a></li>
             <li class="tab"><a ng-click="mainCtrl.grabTab('skate')" class="tab-link" href="#skate">Skate</a></li>
