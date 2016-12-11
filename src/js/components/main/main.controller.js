@@ -6,10 +6,13 @@
     .module('snurfApp.components.main', ['rzModule'])
     .controller('mainController', mainController);
 
-  mainController.$inject = ['$scope', '$rootScope', 'contentService'];
+  mainController.$inject = ['$scope', '$rootScope', 'contentService', 'accountService'];
 
-  function mainController($scope, $rootScope, contentService) {
+  function mainController($scope, $rootScope, contentService, accountService) {
     /*jshint validthis: true */
+
+    console.log($rootScope.loggedIn);
+
     this.allContent = contentService.allContent()
       .then(content => {
         content.data.forEach((each) => {

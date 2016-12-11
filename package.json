@@ -5,7 +5,11 @@
   "main": "gulpfile.js",
   "author": "",
   "license": "ISC",
+  "scripts": {
+    "deploy": "gh-pages -d src"
+  },
   "devDependencies": {
+    "gh-pages": "^0.12.0",
     "gulp": "^3.9.1",
     "gulp-connect": "^4.2.0",
     "gulp-jscs": "^4.0.0",
